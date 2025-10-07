@@ -1,0 +1,9 @@
+import numpy as np
+from sklearn.linear_model import LinearRegression
+
+# Simulate cloud-processed wind data
+hours = np.array(range(24)).reshape(-1, 1)
+wind_speed = np.random.normal(10, 3, 24)  # Sensor data
+model = LinearRegression().fit(hours, wind_speed)
+forecast = model.predict(hours)
+print("Hourly Wind Forecast (m/s):", forecast[:5])  # Output to cloud dashboard
